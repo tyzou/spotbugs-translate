@@ -1,5 +1,5 @@
 # spotbugs-translate
-spotbugs汉化，目前使用百度翻译进行机翻
+spotbugs 中文 汉化 chinese，目前使用百度翻译进行机翻
 
 
 
