@@ -24,8 +24,8 @@ public class BaiduConstant {
 ### 2.找到message.xml
 
 - 在idea官网下载spotbugs-idea-1.2.5.zip
-- 在lib目录下找到spotbugs-4.4.2.jar
-- 将message.xml复制出来
+- 用压缩软件打开spotbugs-idea-1.2.5.zip在lib目录下把spotbugs-4.4.2.jar复制出来
+- 用压缩软件打开spotbugs-4.4.2.jar将message.xml复制出来
 
 
 
