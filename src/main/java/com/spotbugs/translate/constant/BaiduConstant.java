@@ -1,7 +1,7 @@
 package com.spotbugs.translate.constant;
 
 /**
- * @author zouJianJun
+ * @author 无名
  * @date 2022/9/21
  * @desc 百度翻译的常量
  */
