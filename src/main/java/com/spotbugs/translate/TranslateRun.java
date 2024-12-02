@@ -16,11 +16,16 @@ import java.util.*;
 
 public class TranslateRun {
 
-    //https://www.roseindia.net/tutorial/xml/jdom/AddCDATA.html
-    //https://kodejava.org/how-do-i-build-xml-cdata-sections/
+    /**
+     * 运行 
+     * @param args  
+     * @author zack
+     * @date 2024/12/02 16:37
+     * @return void
+     */
     public static void main(String[] args) throws IOException, JDOMException {
-        String messagePath = "D:\\spotbugs\\messages_old.xml";
-        String newMessagePath = "D:\\spotbugs\\messages.xml";
+        String messagePath = "D:\\spotbugs\\messages.xml";
+        String newMessagePath = "D:\\spotbugs\\messages_zh.xml";
         runStart(messagePath,newMessagePath);
     }
 
