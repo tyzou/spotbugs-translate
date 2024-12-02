@@ -8,7 +8,20 @@
 
 
 
-把message.xml从 `spotbugs-idea-1.2.8.zip` > `lib` > `spotbugs-4.8.6` > `message.xml` 复制出来
+把message.xml从 `spotbugs-idea-1.2.8.zip` > `lib` > `spotbugs-4.8.6.jar` > `message.xml` 复制出来
+
+
+
+
+
+**版本对应：**
+
+| idea版本          | spotbugs版本            |
+| ----------------- | ----------------------- |
+| 2022.2+           | spotbugs-idea-1.2.8.zip |
+| 2022.2+           | spotbugs-idea-1.2.7.zip |
+| 2019.3 - 2023.2.8 | spotbugs-idea-1.2.5.zip |
+| 2019.3 - 2023.2.8 | spotbugs-idea-1.2.4.zip |
 
 
 
@@ -18,7 +31,7 @@
 
 #### 2.1、Ai翻译
 
-通过调用本地通过ollama部署的qwen2.5大模型，进行Ai智能翻译
+通过调用本地安装的ollama部署的qwen2.5大模型，进行Ai智能翻译
 
 
 
@@ -50,27 +63,28 @@ public class BaiduConstant {
 public static void main(String[] args) throws IOException, JDOMException {
         String messagePath = "C:\\MyTest\\spotbugs\\1.2.8\\messages.xml";
         String newMessagePath = "C:\\MyTest\\spotbugs\\1.2.8\\messages_zh.xml";
-        runStart(messagePath,newMessagePath,TransModel.MODEL_QWEN);
+        runStart(messagePath,newMessagePath,TransMethodType.MODEL_QWEN);
 }
 ```
 
 
 
-### 四、安装
-
-#### 1.找到message.xml
-
-- 在idea官网下载spotbugs-idea-1.2.5.zip
-- 用压缩软件打开spotbugs-idea-1.2.5.zip在lib目录下把spotbugs-4.4.2.jar复制出来
-- 用压缩软件打开spotbugs-4.4.2.jar将message.xml复制出来
-
-#### 2.运行com.spotbugs.translate.Translate#main
+将messages_zh.xml放到`spotbugs-idea-1.2.8.zip` > `lib` > `spotbugs-4.8.6.jar`中去。
 
 
 
-#### 3.重新打包
+### 四、安装插件
 
-- 把翻译好的message.xml通过压缩软件放到spotbugs-4.4.2.jar并覆盖
-- 把spotbugs-4.4.2.jar放到spotbugs-idea-1.2.5.zip的lib目录并覆盖
-- 最后使用IDEA的Install Plugin from Disk选择zip文件再重新安装，并重启idea
+使用IDEA的Install Plugin from Disk选择zip文件再重新安装，并重启idea
 
+已经翻译好的插件压缩包：https://github.com/tyzou/spotbugs-translate/releases
+
+
+
+![image-20241202214040546](images/image-20241202214040546.png)
+
+
+
+
+
+![image-20241202214150217](images/image-20241202214150217.png)
