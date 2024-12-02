@@ -1,8 +1,6 @@
 package com.spotbugs.translate;
 
-import cn.hutool.core.collection.CollectionUtil;
-import com.spotbugs.translate.constant.TransModel;
-import com.spotbugs.translate.utils.BaiduTransUtil;
+import com.spotbugs.translate.constant.TransMethodType;
 import com.spotbugs.translate.utils.TransUtil;
 import com.spotbugs.translate.vo.MyElement;
 import org.jdom2.*;
@@ -24,20 +22,20 @@ public class TranslateRun {
      * @return void
      */
     public static void main(String[] args) throws IOException, JDOMException {
-        String messagePath = "D:\\spotbugs\\messages.xml";
-        String newMessagePath = "D:\\spotbugs\\messages_zh.xml";
-        runStart(messagePath,newMessagePath);
+        String messagePath = "C:\\MyTest\\spotbugs\\1.2.8\\messages.xml";
+        String newMessagePath = "C:\\MyTest\\spotbugs\\1.2.8\\messages_zh.xml";
+        runStart(messagePath,newMessagePath, TransMethodType.MODEL_QWEN);
     }
 
     /**
-     * 开始运行 
+     * 开始运行
      * @param messagePath
-     * @param newMessagePath  
-     * @author zack
-     * @date 2024/12/02 15:35
-     * @return void
+     * @param newMessagePath
+     * @param translateMethod
+     * @throws IOException
+     * @throws JDOMException
      */
-    public static void runStart(String messagePath, String newMessagePath) throws IOException, JDOMException {
+    public static void runStart(String messagePath, String newMessagePath,String translateMethod) throws IOException, JDOMException {
         SAXBuilder builder = new SAXBuilder();
 
         Document document = builder.build(new File(messagePath));
@@ -68,7 +66,7 @@ public class TranslateRun {
             elementResultList.add(myElement);
         }
         //第三步：翻译
-        TransUtil.translateElement(elementResultList, TransModel.MODEL_QWEN);
+        TransUtil.translateElement(elementResultList, translateMethod);
         //第四步：将上述内容写入XML
         XMLOutputter out = new XMLOutputter();
         out.setFormat(out.getFormat().setEncoding("UTF-8"));

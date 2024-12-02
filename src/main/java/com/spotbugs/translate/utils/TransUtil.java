@@ -1,7 +1,7 @@
 package com.spotbugs.translate.utils;
 
 import cn.hutool.core.collection.CollectionUtil;
-import com.spotbugs.translate.constant.TransModel;
+import com.spotbugs.translate.constant.TransMethodType;
 import com.spotbugs.translate.vo.MyElement;
 import org.jdom2.CDATA;
 import org.jdom2.Content;
@@ -76,9 +76,9 @@ public class TransUtil {
                         oldText = oldText.replace(blank," ");
                     }
                     //翻译文本
-                    if(model.equals(TransModel.MODEL_QWEN)){
+                    if(model.equals(TransMethodType.MODEL_QWEN)){
                         transText = Qwen2TransUtil.trans(oldText);
-                    }else if(model.equals(TransModel.MODEL_BAIDU_API)){
+                    }else if(model.equals(TransMethodType.MODEL_BAIDU_API)){
                         transText = BaiduTransUtil.trans(oldText);
                     }else{
                         throw new RuntimeException("不支持的翻译");

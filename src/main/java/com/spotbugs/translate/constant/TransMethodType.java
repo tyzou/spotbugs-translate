@@ -5,7 +5,7 @@ package com.spotbugs.translate.constant;
  * @date 2024/12/2
  * @desc
  */
-public class TransModel {
+public class TransMethodType {
     /**
      * 通义千问大模型   
      * @author zack

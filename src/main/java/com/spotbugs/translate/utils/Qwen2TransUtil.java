@@ -15,37 +15,19 @@ public class Qwen2TransUtil {
     
     private static String API_URL = "http://localhost:11434/api/generate";
 
+    private static HttpRequest REQUEST = HttpRequest.post(API_URL).header("Content-Type", "application/json");
+
     public static String trans(String text){
-        /*text = "We are releasing the base model weights and network architecture of Grok-1, our large language model. "
-                + "Grok-1 is a 314 billion parameter Mixture-of-Experts model trained from scratch by xAI.\n"
-                + "\n"
-                + "This is the raw base model checkpoint from the Grok-1 pre-training phase, which concluded in October 2023. "
-                + "This means that the model is not fine-tuned for any specific application, such as dialogue.\n"
-                + "\n"
-                + "We are releasing the weights and the architecture under the Apache 2.0 license.\n"
-                + "\n"
-                + "To get started with using the model, follow the instructions at github.com/xai-org/grok.\n"
-                + "\n"
-                + "Model Details\n"
-                + "Base model trained on a large amount of text data, not fine-tuned for any particular task.\n"
-                + "314B parameter Mixture-of-Experts model with 25% of the weights active on a given token.\n"
-                + "Trained from scratch by xAI using a custom training stack on top of JAX and Rust in October 2023.\n"
-                + "The cover image was generated using Midjourney based on the following prompt proposed by Grok: "
-                + "A 3D illustration of a neural network, with transparent nodes and glowing connections, showcasing the varying weights "
-                + "as different thicknesses and colors of the connecting lines.";*/
-
-
-        // Prepare the data
         JSONObject data = new JSONObject();
         data.set("model", "qwen2.5");
         data.set("prompt", text);
-        data.set("system", "Translate the following into chinese and only show me the translated");
+        //data.set("system", "Translate the following into chinese and only show me the translated");
+        data.set("system", "You are a translation tool. Please translate the description of the Java code style checking tool into Chinese and display only the translated content.");
         data.set("stream", false);
 
         // Send the POST request and get the response
         String response = getResponse(data);
-        System.out.println(response);
-        return text;
+        return response;
     }
 
 
@@ -57,14 +39,9 @@ public class Qwen2TransUtil {
      * @return String
      */
     public static String getResponse(JSONObject data) {
-        // Send the POST request using Hutool
-        String response = HttpRequest.post(API_URL)
-                .header("Content-Type", "application/json")
-                .body(data.toString())
+        String response = REQUEST.body(data.toString())
                 .execute()
                 .body();
-
-        // Parse the response to extract the desired content
         JSONObject responseDict = JSONUtil.parseObj(response);
         return responseDict.getStr("response");
     }

@@ -1,16 +1,32 @@
 
 
-### 一、Ai翻译
+### 一、下载插件
 
-通过调用本地ollama部署的qwen2.5大模型，进行Ai智能翻译
+**在idea官网下载idea对于版本的插件**
+
+官网地址：https://plugins.jetbrains.com/plugin/14014-spotbugs/versions/stable
 
 
 
-### 二、百度翻译
+把message.xml从 `spotbugs-idea-1.2.8.zip` > `lib` > `spotbugs-4.8.6` > `message.xml` 复制出来
+
+
+
+### 二、翻译配置
+
+> 有两种方式可以自由选择
+
+#### 2.1、Ai翻译
+
+通过调用本地通过ollama部署的qwen2.5大模型，进行Ai智能翻译
+
+
+
+#### 2.2、百度翻译
 
 使用百度翻译进行机翻
 
-#### 需要去配置百度翻译的应用ID
+##### 需要去配置百度翻译的应用ID
 
 ```java
 public class BaiduConstant {
@@ -26,11 +42,21 @@ public class BaiduConstant {
 }
 ```
 
+### 三、执行翻译
+
+> 修改TranslateRun的main方法的message.xml的路径，并运行main方法
+
+```java
+public static void main(String[] args) throws IOException, JDOMException {
+        String messagePath = "C:\\MyTest\\spotbugs\\1.2.8\\messages.xml";
+        String newMessagePath = "C:\\MyTest\\spotbugs\\1.2.8\\messages_zh.xml";
+        runStart(messagePath,newMessagePath,TransModel.MODEL_QWEN);
+}
+```
 
 
 
-
-### 三、翻译后的处理
+### 四、安装
 
 #### 1.找到message.xml
 
