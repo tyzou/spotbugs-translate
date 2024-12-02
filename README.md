@@ -2,7 +2,7 @@
 
 ### 一、下载插件
 
-**在idea官网下载idea对于版本的插件**
+**在idea官网下载idea对应版本的插件**
 
 官网地址：https://plugins.jetbrains.com/plugin/14014-spotbugs/versions/stable
 
