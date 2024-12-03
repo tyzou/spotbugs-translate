@@ -8,10 +8,6 @@
 
 
 
-把message.xml从 `spotbugs-idea-1.2.8.zip` > `lib` > `spotbugs-4.8.6.jar` > `message.xml` 复制出来
-
-
-
 
 
 **版本对应：**
@@ -26,6 +22,10 @@
 
 
 ### 二、翻译配置
+
+把message.xml从 `spotbugs-idea-1.2.8.zip` > `lib` > `spotbugs-4.8.6.jar` > `message.xml` 复制出来
+
+
 
 > 有两种方式可以自由选择
 
