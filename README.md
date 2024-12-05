@@ -21,7 +21,7 @@
 
 
 
-### 二、翻译配置
+### 二、自己动手翻译插件
 
 把message.xml从 `spotbugs-idea-1.2.8.zip` > `lib` > `spotbugs-4.8.6.jar` > `message.xml` 复制出来
 
@@ -37,9 +37,7 @@
 
 #### 2.2、百度翻译
 
-使用百度翻译进行机翻
-
-##### 需要去配置百度翻译的应用ID
+使用百度翻译进行机翻，下面是配置百度翻译的类
 
 ```java
 public class BaiduConstant {
@@ -55,7 +53,7 @@ public class BaiduConstant {
 }
 ```
 
-### 三、执行翻译
+#### 执行翻译
 
 > 修改TranslateRun的main方法的message.xml的路径，并运行main方法
 
@@ -73,7 +71,7 @@ public static void main(String[] args) throws IOException, JDOMException {
 
 
 
-### 四、安装插件
+### 三、安装插件
 
 使用IDEA的Install Plugin from Disk选择zip文件再重新安装，并重启idea
 
